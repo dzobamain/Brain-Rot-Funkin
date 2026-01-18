@@ -1,0 +1,42 @@
+# ===== UNITY (Game/) =====
+Game/Library/
+Game/Temp/
+Game/Logs/
+Game/Obj/
+Game/Build/
+Game/Builds/
+Game/UserSettings/
+Game/MemoryCaptures/
+Game/Recordings/
+
+# ===== PACKAGE CACHE =====
+Game/Packages/com.unity.*
+
+# OS
+.DS_Store
+Game/.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.pdb
+*.mdb
+*.opendb
+
+# LOGS / TEMP
+*.log
+*.tmp
+*.cache
+*.bak
+
+# BUILDS
+*.apk
+*.aab
+*.ipa
