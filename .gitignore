@@ -1,4 +1,4 @@
-# ===== UNITY (Game/) =====
+# (Game/) 
 Game/Library/
 Game/Temp/
 Game/Logs/
@@ -9,7 +9,7 @@ Game/UserSettings/
 Game/MemoryCaptures/
 Game/Recordings/
 
-# ===== PACKAGE CACHE =====
+# PACKAGE CACHE
 Game/Packages/com.unity.*
 
 # OS
