@@ -21,33 +21,37 @@ public static class LocationManager
     // Collection of all available locations
     public static readonly Location[] AllLocations = new Location[]
     {
-        new Location 
-        { 
-            name = "Ghetto_0", 
-            backgroundPath = $"{LOBBYS_BACKGROUND_PATH}/Ghetto_0" 
-        },
-        new Location 
-        { 
-            name = "Ghetto_1", 
-            backgroundPath = $"{LOBBYS_BACKGROUND_PATH}/Ghetto_1" 
-        }
+        new Location { name = "Ghetto_0" },
+        new Location { name = "Ghetto_1" },
+        new Location { name = "Ghetto_2" },
+        new Location { name = "Ghetto_3" },
+        new Location { name = "Ghetto_4" }
     };
+
+    /// <summary>
+    /// Generate location path from name
+    /// </summary>
+    private static string GenerateLocationPath(string locationName)
+    {
+        return $"{LOBBYS_BACKGROUND_PATH}/{locationName}";
+    }
 
     /// <summary>
     /// Get location by name
     /// </summary>
     public static Location GetLocationByName(string locationName)
     {
-        foreach (Location location in AllLocations)
+        for (int i = 0; i < AllLocations.Length; i++)
         {
-            if (location.name == locationName)
+            if (AllLocations[i].name == locationName)
             {
-                return location;
+                AllLocations[i].backgroundPath = GenerateLocationPath(AllLocations[i].name);
+                return AllLocations[i];
             }
         }
 
         Debug.LogWarning($"Location '{locationName}' not found!");
-        return AllLocations[0]; // Return first location as default
+        return GetLocationByIndex(0);
     }
 
     /// <summary>
@@ -57,10 +61,13 @@ public static class LocationManager
     {
         if (index >= 0 && index < AllLocations.Length)
         {
-            return AllLocations[index];
+            Location location = AllLocations[index];
+            location.backgroundPath = GenerateLocationPath(location.name);
+            return location;
         }
 
         Debug.LogWarning($"Location index {index} is out of range!");
+        AllLocations[0].backgroundPath = GenerateLocationPath(AllLocations[0].name);
         return AllLocations[0];
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: daa9496c4f1d741a4837a26f4a8d2cb3
+guid: d7b974cec88504f1eb0ec5e0c948fcfe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 603559380281188851
-    second: 20260122_1751_Image Generation_simple_compose_01kfk9v81wfzhay2xp5csp99j7_0
+      213: -2157134096475701074
+    second: 20260125_1342_Image Generation_simple_compose_01kftjrxfgf97ag2wapfa42417_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,12 +113,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20260122_1751_Image Generation_simple_compose_01kfk9v81wfzhay2xp5csp99j7_0
+      name: 20260125_1342_Image Generation_simple_compose_01kftjrxfgf97ag2wapfa42417_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
+        width: 1536
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3f1e38efe06406800800000000000000
-      internalID: 603559380281188851
+      spriteID: ea0ceaed7f15012e0800000000000000
+      internalID: -2157134096475701074
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      20260122_1751_Image Generation_simple_compose_01kfk9v81wfzhay2xp5csp99j7_0: 603559380281188851
+      20260125_1342_Image Generation_simple_compose_01kftjrxfgf97ag2wapfa42417_0: -2157134096475701074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
