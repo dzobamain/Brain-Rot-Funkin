@@ -21,11 +21,11 @@ public static class LocationManager
     // Collection of all available locations
     public static readonly Location[] AllLocations = new Location[]
     {
-        new Location { name = "Ghetto_0" },
-        new Location { name = "Ghetto_1" },
-        new Location { name = "Ghetto_2" },
-        new Location { name = "Ghetto_3" },
-        new Location { name = "Ghetto_4" }
+        new Location { name = "Ghetto/Ghetto_0" },
+        new Location { name = "Ghetto/Ghetto_1" },
+        new Location { name = "Ghetto/Ghetto_2" },
+        new Location { name = "Ghetto/Ghetto_3" },
+        new Location { name = "Ghetto/Ghetto_4" }
     };
 
     /// <summary>
