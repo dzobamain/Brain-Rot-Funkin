@@ -5,7 +5,7 @@ namespace Data
 {
     public class Config
     {
-        private static string game_data = Application.dataPath + "/Config/data.json";
+        private static string game_data = Application.dataPath + "/Data/data.json";
         public static string PathData {
             get { return game_data; }
         }

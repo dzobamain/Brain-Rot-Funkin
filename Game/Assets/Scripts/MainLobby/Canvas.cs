@@ -2,15 +2,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static Scene;
+using Data;
 
 public class MainLobbyCanvas : MonoBehaviour
 {
     void Start()
     {
-        UpdateAllObjects(true, true, true);
+        GameData gameData = new GameData();
+
+        bool loaded = Config.LoadFromJson(Config.PathData, ref gameData);
+
+        if (!loaded)
+        {
+            Debug.LogError("Failed to load GameData");
+
+            gameData.playedLevel = 0;
+            gameData.selectedLevel = 0;
+            gameData.playerModel = 0;
+        }
+
+        UpdateAllObjects(true, true, true, gameData.selectedLevel, gameData.playerModel);
     }
 
-    private void UpdateAllObjects(bool locUpdate, bool playerUpdate, bool oppUpdate)
+    private void UpdateAllObjects(bool locUpdate, bool oppUpdate, bool playerUpdate, int locAndOppIndex = 0, int playerIndex = 0)
     {
         if (!locUpdate || !oppUpdate || !playerUpdate)
         {
@@ -19,21 +33,20 @@ public class MainLobbyCanvas : MonoBehaviour
 
         if (locUpdate)
         {
-            Location location = LocationManager.GetLocationByIndex(0);
+            Location location = LocationManager.GetLocationByIndex(locAndOppIndex);
             Scene.LoadImage(location.backgroundPath, "Background");
         }
 
         if (oppUpdate)
         {
-            Opponent opponent = OpponentManager.GetOpponentByIndex(0);
+            Opponent opponent = OpponentManager.GetOpponentByIndex(locAndOppIndex);
             Scene.LoadImage(opponent.imagePath, "Opponent");
         }
 
         if (playerUpdate)
         {
-            Player player = PlayerManager.GetPlayerByIndex(0);
+            Player player = PlayerManager.GetPlayerByIndex(playerIndex);
             Scene.LoadImage(player.imagePath, "Player");
         }
     }
-    
 }

@@ -20,7 +20,11 @@ public static class OpponentManager
     // Collection of all available opponents
     public static readonly Opponent[] AllOpponents = new Opponent[]
     {
-        new Opponent { name = "Tralalelotralala_0" }
+        new Opponent { name = "Tralalelotralala_0" },
+        new Opponent { name = "1" },
+        new Opponent { name = "2" },
+        new Opponent { name = "3" },
+        new Opponent { name = "4" }
     };
 
     /// <summary>
