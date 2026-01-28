@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Data
 {
     [System.Serializable]
-    public class GameData
+    public class Game
     {
         public int playedLevel;
         public int selectedLevel;

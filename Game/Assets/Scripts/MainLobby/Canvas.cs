@@ -1,52 +1,53 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using static Scene;
-using Data;
 
-public class MainLobbyCanvas : MonoBehaviour
+namespace MainLobby
 {
-    void Start()
+    public class Canvas : MonoBehaviour
     {
-        GameData gameData = new GameData();
-
-        bool loaded = Config.LoadFromJson(Config.PathData, ref gameData);
-
-        if (!loaded)
+        void Start()
         {
-            Debug.LogError("Failed to load GameData");
+            Data.Game gameData = new Data.Game();
 
-            gameData.playedLevel = 0;
-            gameData.selectedLevel = 0;
-            gameData.playerModel = 0;
+            bool loaded = Data.Config.LoadFromJson(Data.Config.PathData, ref gameData);
+
+            if (!loaded)
+            {
+                Debug.LogError("Failed to load GameData");
+
+                gameData.playedLevel = 0;
+                gameData.selectedLevel = 0;
+                gameData.playerModel = 0;
+            }
+
+            UpdateAllObjects(true, true, true, gameData.selectedLevel, gameData.playerModel);
         }
 
-        UpdateAllObjects(true, true, true, gameData.selectedLevel, gameData.playerModel);
-    }
-
-    private void UpdateAllObjects(bool locUpdate, bool oppUpdate, bool playerUpdate, int locAndOppIndex = 0, int playerIndex = 0)
-    {
-        if (!locUpdate || !oppUpdate || !playerUpdate)
+        private void UpdateAllObjects(bool locUpdate, bool oppUpdate, bool playerUpdate, int locAndOppIndex = 0, int playerIndex = 0)
         {
-            return;
-        }
+            if (!locUpdate || !oppUpdate || !playerUpdate)
+            {
+                return;
+            }
 
-        if (locUpdate)
-        {
-            Location location = LocationManager.GetLocationByIndex(locAndOppIndex);
-            Scene.LoadImage(location.backgroundPath, "Background");
-        }
+            if (locUpdate)
+            {
+                Obj.Location location = Obj.LocationManager.GetLocationByIndex(locAndOppIndex);
+                Scene.LoadImage(location.backgroundPath, "Background");
+            }
 
-        if (oppUpdate)
-        {
-            Opponent opponent = OpponentManager.GetOpponentByIndex(locAndOppIndex);
-            Scene.LoadImage(opponent.imagePath, "Opponent");
-        }
+            if (oppUpdate)
+            {
+                Obj.Opponent opponent = Obj.OpponentManager.GetOpponentByIndex(locAndOppIndex);
+                Scene.LoadImage(opponent.imagePath, "Opponent");
+            }
 
-        if (playerUpdate)
-        {
-            Player player = PlayerManager.GetPlayerByIndex(playerIndex);
-            Scene.LoadImage(player.imagePath, "Player");
+            if (playerUpdate)
+            {
+                Obj.Player player = Obj.PlayerManager.GetPlayerByIndex(playerIndex);
+                Scene.LoadImage(player.imagePath, "Player");
+            }
         }
     }
 }
